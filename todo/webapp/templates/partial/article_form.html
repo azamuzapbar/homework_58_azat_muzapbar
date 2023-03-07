@@ -1,0 +1,42 @@
+{% csrf_token %}
+
+<div class="form_row">
+    {% if errors.summary %}
+    <p class="error">{{ errors.summary }}</p>
+    {% endif %}
+    <label for="summary">Summary: </label>
+    <input id='summary' name='summary' type="text" value="{{ task.summary }}">
+</div>
+
+<div class="form_row">
+    <label for="description"> description: </label>
+    <input id="description" name="description" type="text" value="{{ task.description }}">
+</div>
+<div class="form_row">
+    <label for="type"> type: </label>
+    <select name="type" id="type">
+        {% for choice in choices %}
+            {% if task.status == choice.0 %}
+                <option value="{{ choice.0 }}" selected>{{ choice.1 }}</option>
+            {% else %}
+                <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+</div>
+
+<div class="form_row">
+    <label for="status"> Status: </label>
+    <select name="status" id="status">
+        {% for choice in choices %}
+            {% if task.status == choice.0 %}
+                <option value="{{ choice.0 }}" selected>{{ choice.1 }}</option>
+            {% else %}
+                <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+</div>
+<div class="form_row">
+    <input type="submit" value="{{ button_text }}">
+</div>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Article - {{ article.title }}
+{% endblock %}
+
+{% block menu %}
+    <li>
+        <li><a href="{% url 'article_add' %}">Add Article</a></li>
+    </li>
+{% endblock %}
+
+{% block content %}
+
+    <p>Summary {{ task.summary }} </p>
+    <p>Description {{ task.description }} </p>
+    <p>Status {{ task.status }} </p>
+    <p>Type {{ task.type }} </p>
+
+{% endblock %}
