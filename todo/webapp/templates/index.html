@@ -4,10 +4,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <p>Hello World!</p>
-        <a href="{% url 'article_add' %}">Create article</a>
-        <p>{{ result }}</p>
+
+
         {% for task in tasks %}
 <h2>Summary: {{ task.summary }}</h2>
 <p> Description: {{ task.description }}</p>
@@ -20,5 +18,5 @@
 <p><a href="{% url 'article_update' task.pk %}"> Update </a></p>
 <p><a href="{% url 'article_delete' task.pk %}"> Delete </a></p>
         {% endfor %}
-    </div>
+
 {% endblock %}
